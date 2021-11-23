@@ -1,11 +1,12 @@
-const ReasonForSparing = () => (
+const ReasonForSparing = ({reasonForSparing, setReasonForSparing}) => (
   <>
-    <label for="freasonforsparing">Reason for sparing </label>
+    <label htmlFor="freasonforsparing">Reason for sparing </label>
     <textarea
-      id="freasonforsparing"
-      name="freasonforsparing"
+      id="reasonforsparing"
+      placeholder={reasonForSparing}
       rows="5"
       cols="40"
+      onChange={setReasonForSparing}
     ></textarea>
   </>
 );

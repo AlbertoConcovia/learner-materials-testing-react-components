@@ -1,8 +1,8 @@
-const SpeciesName = () => (
-	<>
-		<label for="fspeciesname">Species Name: </label>
- 		<input type="text" id="fspeciesname" name="fspeciesname" value=""/>
-	</>
+const SpeciesName = ( {speciesName, onChangeSpeciesName} ) => ( 
+    <div> 
+        <label htmlFor='speciesName'>Species Name</label> 
+        <input id='speciesName' type='text' value={speciesName} onChange={onChangeSpeciesName} /> 
+    </div> 
 );
 
 export default SpeciesName;

@@ -1,8 +1,10 @@
-const NumberOfBeings = () => (
-  <>
-    <label for="fnumberofbeings">Number of beings: </label>
-    <input type="text" id="fnumberofbeings" name="fnumberofbeings" value="" />
-  </>
-);
+
+const NumberOfBeings = ({numberOfBeings, onChangeNumberOfBeings}) => ( 
+    <div>
+      <label htmlFor="numberofbeings">Number of beings: </label>
+      <input id='numberofbeings' type="text" value={numberOfBeings} onChange={onChangeNumberOfBeings} />
+    </div> 
+  );
+
 
 export default NumberOfBeings;
