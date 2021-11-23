@@ -3,6 +3,6 @@ import ReasonForSparing from "./ReasonForSparing";
 
 test("renders reason for sparing", () => {
   render(<ReasonForSparing />);
-  const someHeaderText = screen.getByText(/Reason for sparing/i);
-  expect(someHeaderText).toBeInTheDocument();
+  const reasonForSparingText = screen.getByText(/Reason for sparing/i);
+  expect(reasonForSparingText).toBeInTheDocument();
 });

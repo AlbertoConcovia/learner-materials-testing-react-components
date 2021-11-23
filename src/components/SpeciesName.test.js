@@ -3,8 +3,8 @@ import SpeciesName from './SpeciesName';
 
 test('renders Species Name Input', () => {
 	render(<SpeciesName/>);
-	const someHeaderText = screen.getByText(
+	const speciesNameText = screen.getByText(
 		/Species Name/i
 	);
-	expect(someHeaderText).toBeInTheDocument();
+	expect(speciesNameText).toBeInTheDocument();
 });
