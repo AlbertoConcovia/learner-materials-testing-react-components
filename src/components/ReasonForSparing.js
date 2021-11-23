@@ -1,6 +1,6 @@
 const ReasonForSparing = ({reasonForSparing, setReasonForSparing}) => (
   <>
-    <label htmlFor="freasonforsparing">Reason for sparing </label>
+    <label htmlFor="freasonforsparing">Reason for sparing</label>
     <textarea
       id="reasonforsparing"
       placeholder={reasonForSparing}
