@@ -4,6 +4,7 @@ import SpeciesName from "./SpeciesName";
 import PlanetName from "./PlanetName";
 import NumberOfBeings from "./NumberOfBeings";
 import WhatIs2plus2 from "./WhatIs2plus2";
+import ReasonForSparing from "./ReasonForSparing" ;
 
 const W12MForm = () => {
   return (
@@ -14,7 +15,7 @@ const W12MForm = () => {
         <PlanetName />
        	<NumberOfBeings/>
 		<WhatIs2plus2/>
-		{/* <ReasonForSparing/> */}
+		<ReasonForSparing/>
       </form>
     </section>
   );
