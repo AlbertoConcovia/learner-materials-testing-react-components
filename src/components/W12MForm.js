@@ -8,13 +8,14 @@ import ReasonForSparing from "./ReasonForSparing";
 import SubmitForm from "./SubmitForm";
 import "../App.css";
 
-const W12MForm = () => {
+const W12MForm = ({onSubmitForm}) => {
   const [speciesName, setSpeciesName] = useState("humans");
   const [planetName, setPlanetName] = useState("earth");
   const [numberOfBeings, setNumberOfBeings] = useState(6000000000);
   const [whatIs2plus2, setWhatIs2plus2] = useState();
   const [reasonForSparing, setReasonForSparing] = useState("We love E.T.");
   const handleSubmitForm = (e) =>{
+    onSubmitForm();
     console.log(speciesName, planetName, numberOfBeings, whatIs2plus2, reasonForSparing);
   }
 
@@ -46,6 +47,7 @@ const W12MForm = () => {
         />
         
         <SubmitForm />
+
       </form>
     </section>
   );

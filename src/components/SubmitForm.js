@@ -1,9 +1,8 @@
 const SubmitForm = ( ) => {
 
   return (
-    <div>
+    <div data-testid="buttonSubmitForm">
       <input type='submit'/>
-      {/* <button type="button" name="submitform" onClick={handleSubmitForm}>Submit form</button> */}
     </div>
   );
 }
