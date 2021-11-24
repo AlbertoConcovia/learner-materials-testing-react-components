@@ -12,7 +12,7 @@ const WhatIs2plus2 = ({ whatIs2plus2, onChangeWhatIs2plus2 }) => {
 
   return (
     <div>
-      <label htmlFor="fwhatis2plus2">What is 2+2? </label>
+      <label htmlFor="fwhatis2plus2">What is 2+2?</label>
 
       <select
         name="fwhatis2plus2"

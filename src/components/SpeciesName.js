@@ -1,37 +1,33 @@
-import {useState} from "react";
+import { useState } from "react";
 import ErrorMessage from "./ErrorMessage";
 
+const SpeciesName = ({ speciesName, onChangeSpeciesName }) => {
+  const [errorMessage, setErrorMessage] = useState("");
 
-const SpeciesName = ( {speciesName, onChangeSpeciesName} ) => {
-    
-    const [ errorMessage, setErrorMessage ] = useState('');
-    
-    const validate = (value) => {
-        // Must be between 3 and 23 characters. No numbers or special characters allowed!
-        const regex = /^[a-zA-Z]{3,23}$/;
-        return (regex.test(value)) ? " " : 'Must be between 3 and 23 characters. No numbers or special characters.';
-    }
+  const validate = (value) => {
+    // Must be between 3 and 23 characters. No numbers or special characters allowed!
+    const regex = /^[a-zA-Z]{3,23}$/;
+    return regex.test(value)
+      ? " "
+      : "Must be between 3 and 23 characters. No numbers or special characters.";
+  };
 
-    return(
+  return (
     <div>
-
-        <label htmlFor='speciesName'>Species Name</label>
-
-        <input
-            id='speciesName'
-            type='text'
-            value={speciesName}
-            onChange={(e) => {
-                const errorMessage = validate(e.target.value);
-                setErrorMessage(errorMessage);
-                onChangeSpeciesName(e);
-            }
-        }
-        />
-        <ErrorMessage errorMessage={errorMessage}/>
+      <label htmlFor="speciesName">Species Name</label>
+      <input
+        id="speciesName"
+        type="text"
+        value={speciesName}
+        onChange={(e) => {
+          onChangeSpeciesName(e);
+          const errorMessage = validate(e.target.value);
+          setErrorMessage(errorMessage);
+        }}
+      />
+      <ErrorMessage errorMessage={errorMessage} />
     </div>
-
-);
-}
+  );
+};
 
 export default SpeciesName;

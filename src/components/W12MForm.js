@@ -6,6 +6,7 @@ import NumberOfBeings from "./NumberOfBeings";
 import WhatIs2plus2 from "./WhatIs2plus2";
 import ReasonForSparing from "./ReasonForSparing";
 import SubmitForm from "./SubmitForm";
+import "../App.css";
 
 const W12MForm = () => {
   const [speciesName, setSpeciesName] = useState("humans");
@@ -13,14 +14,14 @@ const W12MForm = () => {
   const [numberOfBeings, setNumberOfBeings] = useState(6000000000);
   const [whatIs2plus2, setWhatIs2plus2] = useState();
   const [reasonForSparing, setReasonForSparing] = useState("We love E.T.");
-  const handleSubmitForm = () =>{
-    console.log(` ${speciesName}, ${planetName}, ${numberOfBeings}, ${whatIs2plus2}, ${reasonForSparing}`);
+  const handleSubmitForm = (e) =>{
+    console.log(speciesName, planetName, numberOfBeings, whatIs2plus2, reasonForSparing);
   }
 
   return (
     <section className="w12MForm">
       <W12MHeader />
-      <form>
+      <form onSubmit={handleSubmitForm()}>
         <SpeciesName
           speciesName={speciesName}
           onChangeSpeciesName={(e) => setSpeciesName(e.target.value)}
@@ -44,9 +45,7 @@ const W12MForm = () => {
           onChangeReasonForSparing={(e) => setReasonForSparing(e.target.value)}
         />
         
-        <SubmitForm
-          handleSubmitForm={handleSubmitForm}
-        />
+        <SubmitForm />
       </form>
     </section>
   );

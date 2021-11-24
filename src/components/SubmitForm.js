@@ -1,8 +1,11 @@
-const SubmitForm = ( {handleSubmitForm}) => (
+const SubmitForm = ( ) => {
 
+  return (
     <div>
-      <button type="button" name="submitform" onClick={handleSubmitForm}>Submit form</button>
+      <input type='submit'/>
+      {/* <button type="button" name="submitform" onClick={handleSubmitForm}>Submit form</button> */}
     </div>
   );
+}
   
   export default SubmitForm;

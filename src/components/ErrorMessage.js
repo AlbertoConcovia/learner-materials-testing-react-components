@@ -1,5 +1,5 @@
 const ErrorMessage = ({errorMessage}) => (
-	<div>
+	<div data-testid="idErrorMessage">
 		<p>{errorMessage}</p>
 	</div>
 );
