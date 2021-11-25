@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ErrorMessage from "./ErrorMessage";
 
-const InputLabel = ({ labelText, labelId,  inputValue, onChangeInputValue , inputValueValidation}) => {
+const TextInput = ({ labelText, labelId,  inputValue, onChangeInputValue , inputValueValidation}) => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const validateValue = (value) => {
@@ -26,4 +26,4 @@ const InputLabel = ({ labelText, labelId,  inputValue, onChangeInputValue , inpu
   );
 };
 
-export default InputLabel;
+export default TextInput;

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import InputLabel from "./InputLabel";
+import TextInput from "./TextInput";
 
-describe("InputLabel", () => {
+describe("TextInput", () => {
 
   it("Planet Name Input - Given the required props, When the component is rendered, Then the label Name and input should be present", () => {
     const mockOnChangeValidate = jest.fn();
@@ -21,7 +21,7 @@ describe("InputLabel", () => {
       inputValueValidation:{inputPlanetNameValidation},
     };
 
-    render(<InputLabel {...requiredProps} />);
+    render(<TextInput {...requiredProps} />);
 
     const planetNameText = screen.getByText("Planet Name");
 

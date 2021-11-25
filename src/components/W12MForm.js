@@ -3,7 +3,7 @@ import W12MHeader from "./W12MHeader";
 import WhatIs2plus2 from "./WhatIs2plus2";
 import ReasonForSparing from "./ReasonForSparing";
 import SubmitForm from "./SubmitForm";
-import InputLabel from "./InputLabel";
+import TextInput from "./TextInput";
 import "../App.css";
 
 const W12MForm = ({ onSubmitForm }) => {
@@ -45,7 +45,7 @@ const W12MForm = ({ onSubmitForm }) => {
       <W12MHeader />
       <form onSubmit={handleSubmitForm()}>
 
-        <InputLabel
+        <TextInput
           labelText="Planet Name"
           labelId="planetname"
           inputValue={planetName}
@@ -53,7 +53,7 @@ const W12MForm = ({ onSubmitForm }) => {
           inputValueValidation={inputPlanetNameValidation}
         />
 
-        <InputLabel
+        <TextInput
           labelText="Species Name"
           labelId="speciesname"
           inputValue={speciesname}
@@ -61,7 +61,7 @@ const W12MForm = ({ onSubmitForm }) => {
           inputValueValidation={inputSpeciesNameValidation}
         />
 
-        <InputLabel
+        <TextInput
           labelText="Number of beings"
           labelId="numberofbeings"
           inputValue={numberofbeings}
