@@ -12,7 +12,7 @@ const TextInput = ({ labelText, labelId,  inputValue, onChangeInputValue , input
     <div>
       <label htmlFor={labelId}>{labelText}</label>
       <input
-        id="labelId"
+        id={labelId}
         type="text"
         value={inputValue}
         onChange={(e) => {
