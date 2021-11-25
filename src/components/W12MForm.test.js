@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react';
+import {render, screen , fireEvent} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import W12MForm from "./W12MForm";
 
@@ -11,10 +11,14 @@ test("renders form element", () => {
 it(`Given the required props,
 When click or pressing enter,
 Then function must be called`, () => {
-
-  render(<W12MForm />);
+  const mockFunction = jest.fn();
+  render(<W12MForm onSubmitForm={mockFunction}/>);
   const idButtonSubmitForm = screen.getByTestId("buttonSubmitForm");
+  
+  userEvent.click(idButtonSubmitForm)  
+  expect(mockFunction).toHaveBeenCalledTimes(1);
 
-  userEvent.click(idButtonSubmitForm)
-  expect(idButtonSubmitForm).toBeChecked()
+  fireEvent.keyDown(idButtonSubmitForm, { key: "Enter" })  
+  expect(mockFunction).toHaveBeenCalledTimes(1);
 });
+

@@ -6,7 +6,6 @@ const WhatIs2plus2 = ({ whatIs2plus2, onChangeWhatIs2plus2 }) => {
 
   const validate = (value) => {
     // What is 2 + 2: "4" must be selected. Selecting "Not 4" should display an error.
-    alert(`value ${value}`);
     return value === "4" ? " " : "error: Human please go back to school - You Must choose 4";
   };
 
