@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import TextInput from "./TextInput";
 
+// Planet Input
 describe("TextInput", () => {
   it("Planet Name Input - Given the required props, When the component is rendered, Then the label Name and input should be present", () => {
     const mockOnChangeValidate = jest.fn();
@@ -90,6 +91,107 @@ describe("TextInput", () => {
     const idErrorMessage = screen.getByTestId("idErrorMessage");
     const errorMessage =
       "Must be between 2 and 49 characters. No numbers or special characters.";
+
+    fireEvent.change(inputPlanetName, {
+      target: { value: "Earth" },
+    });
+    expect(idErrorMessage).not.toHaveTextContent(errorMessage);
+  });
+});
+
+// Species Name Input
+describe("SpeciesName", () => {
+  it("Species Name Input - Given the required props, When the component is rendered, Then the label Name and input should be present", () => {
+    const mockOnChangeValidate = jest.fn();
+    const inputValue = "";
+    const inputSpeciesNameValidation = (value) => {
+      // Must be between 3 and 23 characters. No numbers or special characters allowed!
+      const regex = /^[a-zA-Z]{3,23}$/;
+      return regex.test(value)
+        ? " "
+        : "Must be between 3 and 23 characters. No numbers or special characters.";
+    };
+    const requiredProps = {
+      planetName: "Humans",
+      labelText: "Species Name",
+      labelId: "speciesname",
+      inputValue: { inputValue },
+      onChangeInputValue: mockOnChangeValidate,
+      inputValueValidation: inputSpeciesNameValidation,
+    };
+
+    render(<TextInput {...requiredProps} />);
+
+    const planetNameText = screen.getByText("Species Name");
+
+    expect(planetNameText).toBeInTheDocument();
+  });
+
+  // Planet Name: Must be between 2 and 49 characters. Numbers are allowed, but no special characters.
+  it(`Given the required props,
+   When the input field value changes,
+   Then error message should be present`, () => {
+    const mockOnChangeValidate = jest.fn();
+    const inputValue = "";
+    const inputSpeciesNameValidation = (value) => {
+      // Must be between 3 and 23 characters. No numbers or special characters allowed!
+      const regex = /^[a-zA-Z]{3,23}$/;
+      return regex.test(value)
+        ? " "
+        : "Must be between 3 and 23 characters. No numbers or special characters.";
+    };
+    const requiredProps = {
+      planetName: "Humans",
+      labelText: "Species Name",
+      labelId: "speciesname",
+      inputValue: { inputValue },
+      onChangeInputValue: mockOnChangeValidate,
+      inputValueValidation: inputSpeciesNameValidation,
+    };
+
+    render(<TextInput {...requiredProps} />);
+
+    const inputPlanetName = screen.getByLabelText("Species Name");
+    const idErrorMessage = screen.getByTestId("idErrorMessage");
+
+    fireEvent.change(inputPlanetName, { target: { value: "H" } });
+    expect(idErrorMessage).toBeInTheDocument();
+
+    const errorMessage =
+      "Must be between 3 and 23 characters. No numbers or special characters.";
+    fireEvent.change(inputPlanetName, {
+      target: { value: "EAAAAAAAAAEAAAAAAAAAEAAAAAAAAAEAAAAAAAAAEAAAAAAAAA" },
+    });
+    expect(idErrorMessage).toHaveTextContent(errorMessage);
+  });
+
+  it(`Given the required props,
+   When the input field value changes,
+   Then error message should NOT be present`, () => {
+    const mockOnChangeValidate = jest.fn();
+    const inputValue = "";
+    const inputSpeciesNameValidation = (value) => {
+      // Must be between 3 and 23 characters. No numbers or special characters allowed!
+      const regex = /^[a-zA-Z]{3,23}$/;
+      return regex.test(value)
+        ? " "
+        : "Must be between 3 and 23 characters. No numbers or special characters.";
+    };
+    const requiredProps = {
+      planetName: "Humans",
+      labelText: "Species Name",
+      labelId: "speciesname",
+      inputValue: { inputValue },
+      onChangeInputValue: mockOnChangeValidate,
+      inputValueValidation: inputSpeciesNameValidation,
+    };
+
+    render(<TextInput {...requiredProps} />);
+
+    const inputPlanetName = screen.getByLabelText("Species Name");
+    const idErrorMessage = screen.getByTestId("idErrorMessage");
+    const errorMessage =
+    "Must be between 3 and 23 characters. No numbers or special characters.";
 
     fireEvent.change(inputPlanetName, {
       target: { value: "Earth" },
