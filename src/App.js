@@ -2,8 +2,21 @@ import "./App.css";
 import W12MForm from "./components/W12MForm";
 
 function App() {
-  const onSubmitForm = (e) => {
-    console.log(`after submit`);
+
+  const onSubmitForm = (
+    planetName,
+    speciesname,
+    numberofbeings,
+    whatIs2plus2,
+    reasonForSparing,
+  ) => {
+    console.log(
+      planetName,
+      speciesname,
+      numberofbeings,
+      whatIs2plus2,
+      reasonForSparing
+    );
   };
 
   return (

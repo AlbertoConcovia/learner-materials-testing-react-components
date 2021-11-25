@@ -5,46 +5,28 @@ import ReasonForSparing from "./ReasonForSparing";
 import SubmitForm from "./SubmitForm";
 import TextInput from "./TextInput";
 import "../App.css";
+import {
+  inputPlanetNameValidation,
+  inputSpeciesNameValidation,
+  inputNumberOfBeingsValidation,
+} from "../data/validation";
 
 const W12MForm = ({ onSubmitForm }) => {
-  const [planetName, setPlanetName] = useState("");
-  const [speciesname, setSpeciesname] = useState("");
-  const [numberofbeings, setNumberofbeings] = useState("");
-  const [whatIs2plus2, setWhatIs2plus2] = useState();
-  const [reasonForSparing, setReasonForSparing] = useState("We love E.T.");
-  const handleSubmitForm = (e) => {
-    onSubmitForm();
-    console.log(planetName, speciesname, numberofbeings, whatIs2plus2, reasonForSparing);
-  };
-
-  const inputPlanetNameValidation = (value) => {
-    const regex = /^[a-zA-Z0-9]{2,49}$/;
-    return regex.test(value)
-      ? " "
-      : "Must be between 2 and 49 characters. No numbers or special characters.";
-  };
-
-  const inputSpeciesNameValidation = (value) => {
-    // Must be between 3 and 23 characters. No numbers or special characters allowed!
-    const regex = /^[a-zA-Z]{3,23}$/;
-    return regex.test(value)
-      ? " "
-      : "Must be between 3 and 23 characters. No numbers or special characters.";
-  };
-
-  const inputNumberOfBeingsValidation = (value) => {
-    // Number of beings: Numbers ONLY. Must be at least 1000000000.
-    const regex = /^[0-9]{10,}$/;
-    return regex.test(value)
-      ? " "
-      : "Must be numbers ONLY and at least 1,000,000,000.";
+  
+  const [planetName, setPlanetName] = useState("Earth");
+  const [speciesname, setSpeciesname] = useState("Humans");
+  const [numberofbeings, setNumberofbeings] = useState("6000000000");
+  const [whatIs2plus2, setWhatIs2plus2] = useState(2);
+  const [reasonForSparing, setReasonForSparing] = useState("We love E.T. ...........");
+  const handleSubmit = (event) => {
+      onSubmitForm( planetName, speciesname, numberofbeings, whatIs2plus2, reasonForSparing);
+      event.preventDefault();
   };
 
   return (
     <section className="w12MForm">
       <W12MHeader />
-      <form onSubmit={handleSubmitForm()}>
-
+      <form onSubmit={handleSubmit}>
         <TextInput
           labelText="Planet Name"
           labelId="planetname"
